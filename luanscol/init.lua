@@ -1,3 +1,10 @@
+local is_win = type(package) == 'table' and type(package.config) == 'string' and package.config:sub(1,1) == '\\'
+
+
+
+local function is_supported()
+   return (not is_win)
+end
 local esc = string.char(27) .. '[%s'
 local colnums = {
    black = 0, -- fgbase:30 bgbase: 40 fghibase
@@ -72,13 +79,17 @@ local function create(fgkey)
       bg = self.__bgcode + self.__bgbase
       attr = #self.__attr > 0 and ';' .. table.concat(self.__attr, ';') or ''
 
-      return string.format('%sm%s%sm%s%sm',
-         esc:format(bg),
-         esc:format(fg),
-         attr,
-         self.__str,
-         esc:format(0)
-      )
+      if is_supported() then
+         return string.format('%sm%s%sm%s%sm',
+            esc:format(bg),
+            esc:format(fg),
+            attr,
+            self.__str,
+            esc:format(0)
+         )
+      else
+         return self.__str
+      end
    end
 
    function bgmeta:__call(s)
