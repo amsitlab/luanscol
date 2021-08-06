@@ -23,7 +23,7 @@ luarocks install luanscol
 ### Pattern
 Style use string with format `<fgstyle>:<bgstyle>` look like:
 
-`bH` 
+`bH`
  * fg is _bold, light_
  * bg is no style
 
@@ -77,7 +77,7 @@ print(cyan:magenta 'CyanLight on MagentaLight with bold' + 'bH:H')
 
 
 ```
-see [Style](##Style)
+see [Style](#style)
 
 
 ### Advance
@@ -85,7 +85,7 @@ see [Style](##Style)
 local luanscol = require 'luanscol'
 
 -- cyan with underline
-local title = luanscol.Cyan 'u' 
+local title = luanscol.Cyan 'u'
 
 -- print title with fg cyan bg white with underline style
 print(cyan:white 'Cyan on white with underline')
