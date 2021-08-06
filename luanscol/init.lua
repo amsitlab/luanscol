@@ -20,7 +20,6 @@ local attrs = {
    s = 9, -- strikethrough
 }
 
-local methods = {}
 local function parse_attribute(self, attr)
    assert(type(attr) == 'string')
    local pattern = '([BbdhHinsu]*):?([H]*)'
