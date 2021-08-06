@@ -77,7 +77,7 @@ print(cyan:magenta 'CyanLight on MagentaLight with bold' + 'bH:H')
 
 
 ```
-see [Style]	(##Style)
+see [Style](##Style)
 
 
 ### Advance
